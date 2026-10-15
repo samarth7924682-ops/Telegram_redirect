@@ -2,201 +2,119 @@
 <html lang="hi">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Personal Tipper - Loss Cover</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#121418">
+<title>TossExchange Admin ID - Starts at ₹2500 Monthly</title>
+<meta property="og:title" content="TossExchange Admin ID - Starts at ₹2500 Monthly">
+<meta property="og:description" content="Apni khud ki Admin ID lein. WhatsApp par sampark karein.">
 <style>
-  :root {
-    --pitch: #0b3d2e;
-    --pitch-deep: #072a20;
-    --cream: #f4ecd8;
-    --seam: #d14917;
-    --line: rgba(237, 228, 211, 0.15);
-  }
+  :root { --dark: #121418; --accent: #ffb703; --green: #2e7d32; --wa: #25d366; }
+  * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+  html, body { width: 100%; }
+  body { min-height: 100vh; min-height: 100dvh; background: #eceff4; font-family: 'Segoe UI', Arial, sans-serif; color: #111; overflow-x: hidden; }
 
-  * { margin: 0; padding: 0; box-sizing: border-box; }
+  /* ---------- HERO (index ke header jaisa) ---------- */
+  .hero { position: relative; overflow: hidden; background: var(--dark); color: #fff; text-align: center; padding: calc(env(safe-area-inset-top, 0px) + 18px) 16px 64px; border-radius: 0 0 26px 26px; box-shadow: 0 6px 18px rgba(0,0,0,0.28); }
+  .hero::before { content: ""; position: absolute; top: -130px; left: 50%; width: 380px; height: 380px; transform: translateX(-50%); background: radial-gradient(circle, rgba(255,183,3,0.30), transparent 70%); pointer-events: none; }
+  .hero::after { content: ""; position: absolute; inset: 0; background-image: radial-gradient(rgba(255,255,255,0.07) 1px, transparent 1px); background-size: 18px 18px; pointer-events: none; }
+  .hero > * { position: relative; z-index: 1; }
+  .coin { width: 56px; height: 56px; margin: 0 auto 8px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 30px; font-weight: 900; color: #2b1d00; border: 2px solid #ffd55a; background: radial-gradient(circle at 35% 30%, #ffe48a, #f2b705 60%, #b87400); box-shadow: 0 0 0 4px rgba(255,183,3,0.15), 0 6px 16px rgba(0,0,0,0.5); animation: flip 3.2s ease-in-out infinite; }
+  @keyframes flip { 0%, 55% { transform: rotateY(0deg); } 100% { transform: rotateY(360deg); } }
+  .logo { font-size: 25px; font-weight: 900; letter-spacing: 0.6px; line-height: 1.1; }
+  .logo .dl { letter-spacing: -3px; }
+  .logo .gold { color: var(--accent); }
+  .badges { display: flex; gap: 6px; justify-content: center; flex-wrap: wrap; margin-top: 10px; }
+  .badge { background: #222; padding: 4px 10px; border-radius: 20px; font-size: 10px; color: var(--accent); font-weight: bold; border: 1px solid #444; }
 
-  body {
-    min-height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 20px;
-    background: radial-gradient(circle at 50% -20%, #1a5c46 0%, var(--pitch) 50%, var(--pitch-deep) 100%);
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-    color: var(--cream);
-  }
+  /* ---------- CARD ---------- */
+  .wrap { position: relative; z-index: 2; width: 100%; max-width: 400px; margin: -44px auto 0; padding: 0 14px calc(env(safe-area-inset-bottom, 0px) + 18px); }
+  .card { position: relative; overflow: hidden; background: #fff; border-radius: 18px; padding: 20px 16px 16px; text-align: center; box-shadow: 0 12px 30px rgba(18,20,24,0.16), 0 2px 6px rgba(0,0,0,0.06); }
+  .card::before { content: ""; position: absolute; top: 0; left: 0; right: 0; height: 4px; background: linear-gradient(90deg, #ffb703, #ffd55a, #ffb703); }
+  .eyebrow { font-size: 11px; font-weight: 800; letter-spacing: 1px; text-transform: uppercase; color: var(--green); }
+  h1 { font-size: 24px; font-weight: 900; line-height: 1.15; margin: 4px 0 14px; color: #111; }
+  h1 em { font-style: normal; color: #d97706; }
 
-  .ticket {
-    width: 100%;
-    max-width: 420px;
-    background: rgba(7, 42, 32, 0.85);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border: 1px solid var(--line);
-    border-radius: 16px;
-    position: relative;
-    overflow: hidden;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
-  }
+  .price { position: relative; overflow: hidden; border-radius: 16px; padding: 14px 10px 12px; margin-bottom: 14px; color: #2b1d00; background: linear-gradient(135deg, #fde047, #ffb703 55%, #d97706); box-shadow: 0 8px 18px rgba(255,183,3,0.40), inset 0 1px 0 rgba(255,255,255,0.55); }
+  .price::after { content: ""; position: absolute; top: 0; left: -60%; width: 40%; height: 100%; background: linear-gradient(120deg, transparent, rgba(255,255,255,0.55), transparent); transform: skewX(-20deg); animation: shine 3.2s infinite; pointer-events: none; }
+  @keyframes shine { 0% { left: -60%; } 55%, 100% { left: 130%; } }
+  .price small { display: block; font-size: 12px; font-weight: 800; letter-spacing: 0.6px; text-transform: uppercase; opacity: 0.85; }
+  .price .amt { font-size: 46px; font-weight: 900; line-height: 1.05; text-shadow: 0 2px 0 rgba(255,255,255,0.35); }
+  .price .per { font-size: 15px; font-weight: 800; }
 
-  .seam {
-    height: 6px;
-    width: 100%;
-    background: repeating-linear-gradient(90deg, var(--seam) 0px, var(--seam) 12px, #8f2d0a 12px, #8f2d0a 24px);
-  }
+  .features { text-align: left; background: #f6f8fb; border: 1px solid #e5e9f2; border-radius: 14px; padding: 12px 14px; margin-bottom: 14px; }
+  .features p { display: flex; align-items: center; gap: 10px; font-size: 13.5px; font-weight: 600; color: #1e293b; padding: 5px 0; }
+  .features span { flex: none; width: 20px; height: 20px; border-radius: 50%; background: #22c55e; color: #fff; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 900; }
 
-  .content {
-    padding: 35px 25px;
-    text-align: center;
-  }
+  .btn-wa { position: relative; overflow: hidden; display: flex; align-items: center; justify-content: center; gap: 10px; width: 100%; padding: 15px 18px; border-radius: 14px; text-decoration: none; color: #fff; font-size: 16px; font-weight: 800; letter-spacing: 0.3px; background: linear-gradient(135deg, #22c55e, #128c4a); box-shadow: 0 8px 18px rgba(18,140,74,0.38), inset 0 1px 0 rgba(255,255,255,0.35); transition: transform 0.15s; }
+  .btn-wa::after { content: ""; position: absolute; top: 0; left: -60%; width: 40%; height: 100%; background: linear-gradient(120deg, transparent, rgba(255,255,255,0.45), transparent); transform: skewX(-20deg); animation: shine 3s infinite; pointer-events: none; }
+  .btn-wa:active { transform: scale(0.97); }
+  .btn-wa svg { width: 24px; height: 24px; fill: #fff; flex: none; }
+  .num { margin-top: 10px; font-size: 13px; font-weight: 700; color: #475569; }
+  .num b { color: #111; letter-spacing: 0.5px; }
+  .redirect { margin-top: 6px; font-size: 11.5px; font-weight: 600; color: #64748b; min-height: 16px; }
 
-  .badge {
-    background: rgba(209, 73, 23, 0.2);
-    color: #ff8a5c;
-    border: 1px solid rgba(209, 73, 23, 0.4);
-    font-size: 12px;
-    font-weight: 700;
-    padding: 5px 12px;
-    border-radius: 50px;
-    display: inline-block;
-    margin-bottom: 15px;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-  }
-
-  h1 {
-    font-size: 26px;
-    font-weight: 800;
-    margin-bottom: 8px;
-    color: #ffffff;
-  }
-
-  p.subtitle {
-    font-size: 15px;
-    color: #b0c4b1;
-    margin-bottom: 25px;
-    font-weight: 500;
-  }
-
-  /* Professional Highlights Box */
-  .features {
-    text-align: left;
-    background: rgba(0, 0, 0, 0.25);
-    padding: 18px;
-    border-radius: 12px;
-    margin-bottom: 25px;
-    border: 1px solid rgba(255, 255, 255, 0.05);
-  }
-
-  .features p {
-    font-size: 15px;
-    margin-bottom: 12px;
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    color: #e2e8f0;
-    font-weight: 600;
-  }
-
-  .features p:last-child { margin-bottom: 0; }
-  
-  .features span {
-    background: #22c55e;
-    color: #000;
-    border-radius: 50%;
-    width: 20px;
-    height: 20px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 12px;
-    font-weight: bold;
-    flex-shrink: 0;
-  }
-
-  .loader {
-    width: 35px;
-    height: 35px;
-    border: 3px solid rgba(255, 255, 255, 0.1);
-    border-radius: 50%;
-    border-top-color: var(--seam);
-    animation: spin 1s linear infinite;
-    margin: 0 auto 20px auto;
-  }
-
-  @keyframes spin {
-    to { transform: rotate(360deg); }
-  }
-
-  .btn-telegram {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    background: linear-gradient(135deg, #0088cc, #00a2ed);
-    color: #ffffff;
-    text-decoration: none;
-    font-weight: 700;
-    font-size: 16px;
-    padding: 15px 24px;
-    border-radius: 8px;
-    transition: all 0.3s ease;
-    box-shadow: 0 8px 16px rgba(0, 136, 204, 0.3);
-  }
-
-  .btn-telegram:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 12px 20px rgba(0, 136, 204, 0.4);
-  }
-
-  .btn-telegram svg {
-    width: 20px;
-    height: 20px;
-    fill: currentColor;
-  }
-
-  .redirect-text {
-    font-size: 13px;
-    color: #8a967f;
-    margin-top: 15px;
-  }
+  @media (max-height: 700px) { .badges { display: none; } .hero { padding-bottom: 54px; } h1 { font-size: 22px; margin-bottom: 10px; } .price .amt { font-size: 40px; } }
+  @media (prefers-reduced-motion: reduce) { .coin, .price::after, .btn-wa::after { animation: none !important; } }
 </style>
-
-<!-- Fast Auto Redirect Script -->
-<script>
-    setTimeout(function() {
-        window.location.href = "https://t.me/RakeshReddy786";
-    }, 500); // 0.5 seconds delay - page khulte hi turant redirect
-</script>
-
 </head>
 <body>
 
-  <div class="ticket">
-    <div class="seam"></div>
-    <div class="content">
-      <span class="badge">VIP Analysis</span>
-      <h1>Personal Tipper</h1>
-      <p class="subtitle">Match loss cover karne ke liye sahi guidance</p>
-      
-      <div class="features">
-        <p><span>✓</span> FEES AFTER WIN (मैच जीतने के बाद फीस)</p>
-        <p><span>✓</span> No Upfront Fees / No Advance</p>
-        <p><span>✓</span> Aiming to help people 100%</p>
-      </div>
-
-      <div class="loader"></div>
-
-      <a href="https://t.me/RakeshReddy786" class="btn-telegram">
-        <svg viewBox="0 0 24 24">
-          <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69.01-.03.01-.14-.07-.2-.08-.06-.19-.04-.27-.02-.12.02-1.96 1.25-5.54 3.69-.52.36-1 .54-1.42.53-.47-.01-1.37-.26-2.05-.48-.82-.27-1.47-.42-1.42-.88.03-.24.38-.49 1.05-.75 4.12-1.79 6.87-2.97 8.26-3.55 3.93-1.63 4.74-1.92 5.27-1.93.12 0 .37.03.54.17.14.12.18.28.2.45-.02.07-.02.16-.04.28z"/>
-        </svg>
-        Message @RakeshReddy786
-      </a>
-      
-      <p class="redirect-text"></p>
-    </div>
+<div class="hero">
+  <div class="coin">$</div>
+  <div class="logo">TO<span class="dl">💲💲</span> <span class="gold">EXCHANGE</span></div>
+  <div class="badges">
+    <div class="badge">🏏 Live Matches</div>
+    <div class="badge">🎰 Casino &amp; Games</div>
+    <div class="badge">⚡ Instant</div>
   </div>
+</div>
 
+<div class="wrap">
+  <div class="card">
+    <div class="eyebrow">Apna khud ka panel</div>
+    <h1>TossExchange <em>Admin ID</em></h1>
+
+    <div class="price">
+      <small>Starts at</small>
+      <div class="amt">₹2500</div>
+      <div class="per">Monthly</div>
+    </div>
+
+    <div class="features">
+      <p><span>✓</span> Apne users ke liye Admin ID</p>
+      <p><span>✓</span> Users, Deposit &amp; Withdraw control</p>
+      <p><span>✓</span> Live Matches + Casino Games</p>
+      <p><span>✓</span> Quick setup &amp; WhatsApp support</p>
+    </div>
+
+    <a class="btn-wa" id="waBtn" href="#">
+      <svg viewBox="0 0 24 24"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.21h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2zm0 18.15h-.01a8.2 8.2 0 0 1-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.2 8.2 0 0 1-1.26-4.38c0-4.54 3.7-8.23 8.25-8.23 2.2 0 4.27.86 5.82 2.42a8.18 8.18 0 0 1 2.41 5.83c0 4.54-3.7 8.22-8.23 8.22zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.12-.17.25-.64.81-.78.97-.14.17-.29.19-.54.06-.25-.12-1.05-.39-2-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.02-.38.11-.5.11-.11.25-.29.37-.43.12-.14.17-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.4-.42-.56-.42h-.48c-.17 0-.43.06-.66.31-.23.25-.87.85-.87 2.07 0 1.22.89 2.4 1.01 2.56.12.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.67-1.18.21-.58.21-1.07.14-1.18-.06-.1-.23-.16-.48-.29z"/></svg>
+      WhatsApp par Message Karein
+    </a>
+    <div class="num">WhatsApp: <b>97218 39767</b></div>
+    <div class="redirect" id="redirectText"></div>
+  </div>
+</div>
+
+<script>
+  var WA_NUMBER = "919721839767";   // 91 = India code
+  var WA_TEXT = "Hello, mujhe TossExchange Admin ID chahiye (starts at ₹2500 monthly). Details bataiye.";
+  var REDIRECT_SEC = 2;             // kitne second baad WhatsApp khule (0 = turant)
+
+  var WA_URL = "https://wa.me/" + WA_NUMBER + "?text=" + encodeURIComponent(WA_TEXT);
+  document.getElementById("waBtn").href = WA_URL;
+
+  (function () {
+    var left = REDIRECT_SEC, txt = document.getElementById("redirectText");
+    if (left <= 0) { window.location.href = WA_URL; return; }
+    function tick() {
+      if (left <= 0) { window.location.href = WA_URL; return; }
+      txt.textContent = left + " second me WhatsApp khul jayega...";
+      left--;
+      setTimeout(tick, 1000);
+    }
+    tick();
+  })();
+</script>
 </body>
 </html>
